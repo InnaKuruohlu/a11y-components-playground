@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Modal } from "../playground/Modal/Modal";
 import { Tabs } from "../playground/Tabs/Tabs";
+import { Disclosure } from "../playground/Disclosure/Disclosure";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +22,12 @@ function App() {
             { id: "tab3", label: "Third Tab", content: <p>Content for third tab</p> },
           ]}
         />
+      </div>
+
+      <div style={{ marginTop: "2rem" }}>
+        <Disclosure summary="Click to expand">
+          <p>This content is hidden until expanded.</p>
+        </Disclosure>
       </div>
     </div>
   );
