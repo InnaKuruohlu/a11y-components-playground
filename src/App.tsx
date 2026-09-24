@@ -7,28 +7,41 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <button onClick={() => setIsOpen(true)}>Open Modal</button>
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} title="Example Modal">
-        <p>This is modal content.</p>
-        <input placeholder="Try tabbing here" />
-      </Modal>
+    <div className="min-h-screen bg-gray-950 p-8 text-gray-100">
+      <h1 className="mb-8 text-2xl font-bold text-white">Accessible Components Playground</h1>
 
-      <div style={{ marginTop: "2rem" }}>
+      <section className="mb-10">
+        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-500">Browse by Genre</h2>
         <Tabs
           tabs={[
-            { id: "tab1", label: "First Tab", content: <p>Content for first tab</p> },
-            { id: "tab2", label: "Second Tab", content: <p>Content for second tab</p> },
-            { id: "tab3", label: "Third Tab", content: <p>Content for third tab</p> },
+            {
+              id: "fiction",
+              label: "Fiction",
+              content: <p>Browse novels, short stories, and literary fiction from our collection.</p>,
+            },
+            {
+              id: "nonfiction",
+              label: "Non-fiction",
+              content: <p>Explore biographies, history, and essays grounded in real events.</p>,
+            },
+            {
+              id: "scifi",
+              label: "Sci-Fi",
+              content: <p>Discover speculative fiction, space opera, and dystopian futures.</p>,
+            },
           ]}
         />
-      </div>
+      </section>
 
-      <div style={{ marginTop: "2rem" }}>
-        <Disclosure summary="Click to expand">
-          <p>This content is hidden until expanded.</p>
+      <section>
+        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-500">Details</h2>
+        <Disclosure summary="Book description">
+          <p>
+            A gripping story about a young wizard discovering his magical
+            heritage, and the friends and adventures he finds along the way.
+          </p>
         </Disclosure>
-      </div>
+      </section>
     </div>
   );
 }

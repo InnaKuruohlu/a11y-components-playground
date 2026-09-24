@@ -61,16 +61,8 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
 
   return (
     <div
-      className="modal-backdrop"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
       onClick={onClose}
-      style={{
-        position: "fixed",
-        inset: 0,
-        background: "rgba(0,0,0,0.5)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
     >
       <div
         ref={dialogRef}
@@ -79,16 +71,16 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
         aria-labelledby="modal-title"
         tabIndex={-1}
         onClick={(event) => event.stopPropagation()}
-        style={{
-          background: "white",
-          padding: "1.5rem",
-          borderRadius: "0.5rem",
-          minWidth: "300px",
-        }}
+        className="min-w-[320px] max-w-md rounded-xl border border-gray-700 bg-gray-800 p-6 text-gray-100 shadow-[0_0_40px_rgba(168,85,247,0.25)] focus:outline-none"
       >
-        <h2 id="modal-title">{title}</h2>
-        {children}
-        <button onClick={onClose} style={{ marginTop: "1rem" }}>
+        <h2 id="modal-title" className="mb-3 text-lg font-semibold text-white">
+          {title}
+        </h2>
+        <div className="text-gray-300">{children}</div>
+        <button
+          onClick={onClose}
+          className="mt-5 rounded-lg bg-purple-600 px-4 py-2 font-medium text-white transition hover:bg-purple-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 focus-visible:shadow-[0_0_12px_rgba(217,70,239,0.8)]"
+        >
           Close
         </button>
       </div>
